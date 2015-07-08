@@ -20,6 +20,8 @@ if (os.path.exists(playlist_name) == False):
 for item in songs_info["result"]["tracks"]:
     song = item['name']
     url = item['mp3Url']
+    if (os.path.exists(playlist_name+ '/' + song+'.mp3')):
+        continue
     print "start to download " + song
     mp3file = urllib.urlretrieve(url,playlist_name+ '/' + song+'.mp3', reporthook=report_hook)
     print song+ " has been downloaded"
